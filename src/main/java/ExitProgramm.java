@@ -1,4 +1,5 @@
 public class ExitProgramm extends Operation{
+
     @Override
     public Double operate() {
         System.exit(0);

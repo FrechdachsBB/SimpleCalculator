@@ -1,4 +1,5 @@
 public class PowerOf extends Operation{
+
     @Override
     public Double operate() {
         Double base = askForDouble("Please insert base:", true);

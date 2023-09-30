@@ -1,5 +1,6 @@
 public abstract class BaseOperation extends Operation{
     double result = 0;
+
     @Override
     public Double operate() {
         Double input;
