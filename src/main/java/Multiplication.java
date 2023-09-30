@@ -1,4 +1,15 @@
+import java.io.InputStream;
+import java.io.PrintStream;
+
 public class Multiplication extends BaseOperation{
+
+    public Multiplication() {
+        super();
+    }
+
+    public Multiplication(PrintStream display, InputStream inputStream) {
+        super(display, inputStream);
+    }
 
     private double result = 0;
 

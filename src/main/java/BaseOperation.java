@@ -1,5 +1,16 @@
+import java.io.InputStream;
+import java.io.PrintStream;
+
 public abstract class BaseOperation extends Operation{
     double result = 0;
+
+    public BaseOperation() {
+        super();
+    }
+
+    public BaseOperation(PrintStream display, InputStream inputStream) {
+        super(display, inputStream);
+    }
 
     @Override
     public Double operate() {

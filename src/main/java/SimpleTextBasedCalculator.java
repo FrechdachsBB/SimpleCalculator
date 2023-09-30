@@ -1,3 +1,5 @@
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 
 public class SimpleTextBasedCalculator extends Operation {
@@ -5,12 +7,22 @@ public class SimpleTextBasedCalculator extends Operation {
     private ArrayList<Operation> operations = new ArrayList<>();
 
     public SimpleTextBasedCalculator() {
-        operations.add(new Addition());
-        operations.add(new Subtraction());
-        operations.add(new Multiplication());
-        operations.add(new Division());
-        operations.add(new PowerOf());
-        operations.add(new SqareRoot());
+        super();
+        addOperations();
+    }
+
+    public SimpleTextBasedCalculator(PrintStream display, InputStream inputStream) {
+        super(display, inputStream);
+        addOperations();
+    }
+
+    private void addOperations(){
+        operations.add(new Addition(display, inputStream));
+        operations.add(new Subtraction(display, inputStream));
+        operations.add(new Multiplication(display, inputStream));
+        operations.add(new Division(display, inputStream));
+        operations.add(new PowerOf(display, inputStream));
+        operations.add(new SqareRoot(display, inputStream));
 
         operations.add(new ExitProgramm());
     }

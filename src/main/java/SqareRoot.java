@@ -1,4 +1,15 @@
+import java.io.InputStream;
+import java.io.PrintStream;
+
 public class SqareRoot extends Operation {
+
+    public SqareRoot() {
+        super();
+    }
+
+    public SqareRoot(PrintStream display, InputStream inputStream) {
+        super(display, inputStream);
+    }
 
     private final TypeConverter<String, Double> stringToPositiveDoubleConverter = input -> {
         Double d = Double.parseDouble(input);
