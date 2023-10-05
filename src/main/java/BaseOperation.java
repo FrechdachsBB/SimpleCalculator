@@ -27,8 +27,11 @@ public abstract class BaseOperation extends Operation{
 
     private void processInput(Double input, boolean firstIteration){
         if(input!=null) {
-            result = baseOperation(result, input);
-            if(!firstIteration)display.printf("\t=> %.5f\n",result);
+            if(firstIteration)result=input;
+            else {
+                result = baseOperation(result,input);
+                display.printf("\t=> %.5f\n",result);
+            }
         }
     }
 
