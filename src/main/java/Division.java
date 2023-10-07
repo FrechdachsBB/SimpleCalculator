@@ -13,8 +13,11 @@ public class Division extends Multiplication{
 
     @Override
     protected Double baseOperation(Double first, Double second) {
+        if(second==0)throw new ArithmeticException("Divided by zero");
         return first/second;
     }
+
+
 
     @Override
     public String getDisplayName() {

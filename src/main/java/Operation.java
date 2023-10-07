@@ -1,6 +1,5 @@
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public abstract class Operation {
@@ -29,9 +28,10 @@ public abstract class Operation {
      * This Method will be called, once a user decides to choose this Operation.
      * It should ask for all necessary arguments and finally return the result as Long.
      * It may return null if the user makes an invalid input.
-     * @return
+     * @return The result of the operation
+     * @throws ArithmeticException In case of an illegal Arithmetic Operation
      */
-    public abstract Double operate();
+    public abstract Double operate() throws ArithmeticException;
 
     /**
      * @return The name of this Operation as it should be displayed.
@@ -106,6 +106,8 @@ public abstract class Operation {
     protected Double askForDouble(String helpMessage, boolean retryOnError){
         return ask(helpMessage, retryOnError, Double::parseDouble);
     }
+
+    abstract void reset();
 
 
 

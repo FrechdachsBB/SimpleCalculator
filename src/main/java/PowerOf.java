@@ -22,4 +22,9 @@ public class PowerOf extends Operation{
     public String getDisplayName() {
         return "X^n";
     }
+
+    @Override
+    void reset() {
+
+    }
 }

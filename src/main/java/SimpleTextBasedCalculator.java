@@ -48,7 +48,13 @@ public class SimpleTextBasedCalculator extends Operation {
                     display.println("Invalid Input!");
                 }
             }
-            display.printf("Result: %.5f\n\n", selectedOperation.operate());
+            try {
+                display.printf("Result: %.5f\n\n", selectedOperation.operate());
+            }catch (ArithmeticException e){
+                display.printf("Error: %s", e.getMessage());
+            }finally {
+                selectedOperation.reset();
+            }
         }
     }
 
@@ -63,4 +69,9 @@ public class SimpleTextBasedCalculator extends Operation {
         calculator.operate();
     }
 
+
+    @Override
+    void reset() {
+
+    }
 }

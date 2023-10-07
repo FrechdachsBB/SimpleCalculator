@@ -37,4 +37,8 @@ public abstract class BaseOperation extends Operation{
 
     abstract protected Double baseOperation(Double first, Double second);
 
+    @Override
+    void reset() {
+        result = 0;
+    }
 }
