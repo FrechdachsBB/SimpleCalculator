@@ -2,7 +2,6 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 public abstract class BaseOperation extends Operation{
-    double result = 0;
 
     public BaseOperation() {
         super();
@@ -15,30 +14,37 @@ public abstract class BaseOperation extends Operation{
     @Override
     public Double operate() {
         Double input;
+        Double result = 0d;
         boolean firstIteration = true;
+
         do{
             input = askForDouble("Please insert Number to process or press Enter to finish.");
-            processInput(input,firstIteration);
-            if(result == Long.MAX_VALUE || result == Long.MIN_VALUE)return result;
+            result = processInput(result,input,firstIteration);
+
+            /**
+             * Long.MaxValue wird nach einem Overflow nicht negativ sondern zu infinity
+             * Daher kann der Overflow mit >= geprüft werden.
+             * Analog wird der Underflow mittels <= getestet
+             */
+            if(result >= Long.MAX_VALUE)throw new ArithmeticException("Overflow!");
+            if(result <= Long.MIN_VALUE)throw new ArithmeticException("Underflow!");
             firstIteration = false;
         }while (input!=null);
         return result;
     }
 
-    private void processInput(Double input, boolean firstIteration){
+    protected double processInput(Double previous ,Double input, boolean firstIteration){
+        Double result = previous;
         if(input!=null) {
             if(firstIteration)result=input;
             else {
-                result = baseOperation(result,input);
+                result = baseOperation(previous,input);
                 display.printf("\t=> %.5f\n",result);
+
             }
         }
+        return result;
     }
 
     abstract protected Double baseOperation(Double first, Double second);
-
-    @Override
-    void reset() {
-        result = 0;
-    }
 }

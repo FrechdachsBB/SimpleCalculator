@@ -106,9 +106,4 @@ public abstract class Operation {
     protected Double askForDouble(String helpMessage, boolean retryOnError){
         return ask(helpMessage, retryOnError, Double::parseDouble);
     }
-
-    abstract void reset();
-
-
-
 }

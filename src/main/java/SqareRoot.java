@@ -28,8 +28,4 @@ public class SqareRoot extends Operation {
         return "Square Root";
     }
 
-    @Override
-    void reset() {
-
-    }
 }

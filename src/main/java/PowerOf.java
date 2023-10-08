@@ -1,7 +1,7 @@
 import java.io.InputStream;
 import java.io.PrintStream;
 
-public class PowerOf extends Operation{
+public class PowerOf extends Operation {
 
     public PowerOf() {
         super();
@@ -15,7 +15,7 @@ public class PowerOf extends Operation{
     public Double operate() {
         Double base = askForDouble("Please insert base:", true);
         Double power = askForDouble("Please insert power:", true);
-        return Math.pow(base,power);
+        return Math.pow(base, power);
     }
 
     @Override
@@ -23,8 +23,4 @@ public class PowerOf extends Operation{
         return "X^n";
     }
 
-    @Override
-    void reset() {
-
-    }
 }

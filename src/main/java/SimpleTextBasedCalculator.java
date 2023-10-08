@@ -51,9 +51,7 @@ public class SimpleTextBasedCalculator extends Operation {
             try {
                 display.printf("Result: %.5f\n\n", selectedOperation.operate());
             }catch (ArithmeticException e){
-                display.printf("Error: %s", e.getMessage());
-            }finally {
-                selectedOperation.reset();
+                display.printf("Error: %s\n\n", e.getMessage());
             }
         }
     }
@@ -67,11 +65,5 @@ public class SimpleTextBasedCalculator extends Operation {
     public static void main(String[] args) {
         SimpleTextBasedCalculator calculator = new SimpleTextBasedCalculator();
         calculator.operate();
-    }
-
-
-    @Override
-    void reset() {
-
     }
 }

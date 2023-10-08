@@ -10,9 +10,4 @@ public class ExitProgramm extends Operation{
     public String getDisplayName() {
         return "Exit";
     }
-
-    @Override
-    void reset() {
-
-    }
 }
